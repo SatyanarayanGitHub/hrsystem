@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta content="1;URL=home.html" HTTP-EQUIV="Refresh">
+<meta content="0;URL=home.html" HTTP-EQUIV="Refresh">
 <title>Welcome Page</title>
 </head>
 <body>

@@ -25,7 +25,7 @@ public class JobDAOImpl implements JobDAO {
 		boolean actionResult = false;
 
 		try {
-			String sqlQuery = "insert into job (jobnumber,name,description,createddate) values(?,?,?,?);";
+			String sqlQuery = "insert into job (number,name,description,createddate) values(?,?,?,?);";
 			PreparedStatement pStatement = connection.prepareStatement(sqlQuery);
 
 			pStatement.clearParameters();
@@ -63,7 +63,7 @@ public class JobDAOImpl implements JobDAO {
 				Job job = new Job();
 
 				job.setJobId(rs.getInt("jobid"));
-				job.setJobNumber(rs.getString("jobnumber"));
+				job.setJobNumber(rs.getString("number"));
 				job.setJobName(rs.getString("name"));
 				job.setDescription(rs.getString("description"));
 
@@ -97,7 +97,7 @@ public class JobDAOImpl implements JobDAO {
 
 			if (rs.next()) {
 				job.setJobId(rs.getInt("jobid"));
-				job.setJobNumber(rs.getString("jobnumber"));
+				job.setJobNumber(rs.getString("number"));
 				job.setJobName(rs.getString("name"));
 				job.setDescription(rs.getString("description"));
 
@@ -120,7 +120,7 @@ public class JobDAOImpl implements JobDAO {
 		boolean actionResult = false;
 
 		try {
-			String sqlQuery = "update job set jobnumber=?, name=?, description=?, updateddate=? where jobid = ?";
+			String sqlQuery = "update job set number=?, name=?, description=?, updateddate=? where jobid = ?";
 			PreparedStatement pStatement = connection.prepareStatement(sqlQuery);
 
 			pStatement.clearParameters();
@@ -175,7 +175,7 @@ public class JobDAOImpl implements JobDAO {
 		List<Job> jobs = new ArrayList<Job>();
 
 		try {
-			String sqlQuery = "select * from job where jobnumber like '%"+ search +"%'";
+			String sqlQuery = "select * from job where number like '%"+ search +"%'";
 			PreparedStatement pStatement = connection.prepareStatement(sqlQuery);
 
 			//pStatement.clearParameters();
@@ -187,7 +187,7 @@ public class JobDAOImpl implements JobDAO {
 				Job job = new Job();
 
 				job.setJobId(rs.getInt("jobid"));
-				job.setJobNumber(rs.getString("jobnumber"));
+				job.setJobNumber(rs.getString("number"));
 				job.setJobName(rs.getString("name"));
 				job.setDescription(rs.getString("description"));
 

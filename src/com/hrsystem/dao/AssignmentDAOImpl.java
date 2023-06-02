@@ -74,7 +74,7 @@ public class AssignmentDAOImpl implements AssignmentDAO {
 				Job job = new Job();
 
 				job.setJobId(rs.getInt("jobid"));
-				job.setJobNumber(rs.getString("jobnumber"));
+				job.setJobNumber(rs.getString("number"));
 				// job.setJobName(rs.getString("name"));
 				// job.setDescription(rs.getString("description"));
 
@@ -107,7 +107,7 @@ public class AssignmentDAOImpl implements AssignmentDAO {
 
 			if (rs.next()) {
 				job.setJobId(rs.getInt("jobid"));
-				job.setJobNumber(rs.getString("jobnumber"));
+				job.setJobNumber(rs.getString("number"));
 				job.setJobName(rs.getString("name"));
 				job.setDescription(rs.getString("description"));
 
@@ -159,7 +159,7 @@ public class AssignmentDAOImpl implements AssignmentDAO {
 		List<Assignment> jobAssignments = new ArrayList<Assignment>();
 
 		try {
-			String sqlQuery = "select ja.assignmentid, ja.employeeid, j.jobid, e.firstname, e.lastname, e.initmiddle, j.jobnumber, ja.status from employee e, jobassignment ja, job j where e.employeeid = ja.employeeid and j.jobid = ja.jobid and status = ?";
+			String sqlQuery = "select ja.assignmentid, ja.employeeid, j.jobid, e.firstname, e.lastname, e.initmiddle, j.number, ja.status from employee e, jobassignment ja, job j where e.employeeid = ja.employeeid and j.jobid = ja.jobid and status = ?";
 
 			PreparedStatement pStatement = connection.prepareStatement(sqlQuery);
 
@@ -179,7 +179,7 @@ public class AssignmentDAOImpl implements AssignmentDAO {
 				assignment.setInitMiddle(rs.getString("initmiddle"));
 
 				assignment.setJobId(rs.getInt("jobid"));
-				assignment.setJobNumber(rs.getString("jobnumber"));
+				assignment.setJobNumber(rs.getString("number"));
 
 				assignment.setStatus(rs.getInt("status"));
 
@@ -206,7 +206,7 @@ public class AssignmentDAOImpl implements AssignmentDAO {
 		Assignment assignment = new Assignment();
 
 		try {
-			String sqlQuery = "select ja.assignmentid, ja.employeeid, e.ssn, e.firstname, e.lastname, e.initmiddle, e.location, e.salarytype, j.jobid, j.jobnumber, j.name, j.description, ja.status  from employee e, jobassignment ja, job j where e.employeeid = ja.employeeid and j.jobid = ja.jobid and ja.assignmentid = ?";
+			String sqlQuery = "select ja.assignmentid, ja.employeeid, e.ssn, e.firstname, e.lastname, e.initmiddle, e.location, e.salarytype, j.jobid, j.number, j.name, j.description, ja.status  from employee e, jobassignment ja, job j where e.employeeid = ja.employeeid and j.jobid = ja.jobid and ja.assignmentid = ?";
 
 			PreparedStatement pStatement = connection.prepareStatement(sqlQuery);
 
@@ -228,7 +228,7 @@ public class AssignmentDAOImpl implements AssignmentDAO {
 				assignment.setSalaryType(rs.getString("salarytype"));
 
 				assignment.setJobId(rs.getInt("jobid"));
-				assignment.setJobNumber(rs.getString("jobnumber"));
+				assignment.setJobNumber(rs.getString("number"));
 				assignment.setJobName(rs.getString("name"));
 				assignment.setDescription(rs.getString("description"));
 
